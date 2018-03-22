@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PracticeTestTafe.Models;
@@ -26,6 +27,12 @@ namespace PracticeTestTafe.Services
         public void Add(T item)
         {
             _dbSet.Add(item);
+            _dbContext.SaveChanges();
+        }
+
+        public T GetSingle(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.SingleOrDefault(predicate);
         }
     }
 }

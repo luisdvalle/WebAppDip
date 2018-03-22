@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace PracticeTestTafe.Services
@@ -10,5 +11,6 @@ namespace PracticeTestTafe.Services
     {
         IEnumerable<T> GetAll();
         void Add(T item);
+        T GetSingle(Expression<Func<T, bool>> predicate);
     }
 }
