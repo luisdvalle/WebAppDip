@@ -8,6 +8,7 @@
     <tr>
         <td>@category.CategoryId</td>
         <td>@category.Name</td>
+        <td>@Html.ActionLink("More...", "Details", "Category", new { Id = category.CategoryId })</td>
     </tr>
     }
 </table>

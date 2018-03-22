@@ -12,5 +12,6 @@ namespace PracticeTestTafe.Services
         IEnumerable<T> GetAll();
         void Add(T item);
         T GetSingle(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> Query(Expression<Func<T, bool>> predicate);
     }
 }

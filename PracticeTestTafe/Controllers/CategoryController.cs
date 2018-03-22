@@ -20,8 +20,10 @@ namespace PracticeTestTafe.Controllers
             )
         {
             _categoryDataService = categoryDataService;
+            _productDataService = productDataService;
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -57,10 +59,15 @@ namespace PracticeTestTafe.Controllers
             return View(vm);
         }
 
-        public IActionResult Details(int categoryId)
+        [HttpGet]
+        public IActionResult Details(int id)
         {
+            TempData["catId"] = id.ToString();
+
             // Get category by Id
-            Category category = _categoryDataService.GetSingle(c => c.CategoryId == categoryId);
+            Category category = _categoryDataService.GetSingle(c => c.CategoryId == id);
+            // Get Products by Category Id
+            IEnumerable<Product> products = _productDataService.Query(p => p.CategoryId == id);
 
             // vm
             CategoryDetailsViewModel vm = new CategoryDetailsViewModel
@@ -68,8 +75,8 @@ namespace PracticeTestTafe.Controllers
                 Id = category.CategoryId,
                 Name = category.Name,
                 Details = category.Details,
-                Total = category.Products.Count(),
-                Products = category.Products
+                Total = products.Count(),
+                Products = products
             };
 
             return View(vm);

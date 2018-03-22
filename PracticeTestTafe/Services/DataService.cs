@@ -34,5 +34,10 @@ namespace PracticeTestTafe.Services
         {
             return _dbSet.SingleOrDefault(predicate);
         }
+
+        public IEnumerable<T> Query(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.Where(predicate);
+        }
     }
 }
