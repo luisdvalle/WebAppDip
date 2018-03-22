@@ -10,6 +10,7 @@ namespace PracticeTestTafe.Services
     public class MyDbContext : DbContext
     {
         public DbSet<Category> CategoryTbl { get; set; }
+        public DbSet<Product> ProductTbl { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
