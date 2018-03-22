@@ -1,11 +1,13 @@
-﻿using System;
+﻿using PracticeTestTafe.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PracticeTestTafe.Services
 {
-    interface IDataService
+    public interface IDataService<T>
     {
+        IEnumerable<T> GetAll();
     }
 }

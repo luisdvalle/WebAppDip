@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using PracticeTestTafe.Models;
+using PracticeTestTafe.Services;
 
 namespace PracticeTestTafe
 {
@@ -16,6 +18,9 @@ namespace PracticeTestTafe
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // Registering services in DI container
+            services.AddScoped<IDataService<Category>, DataService<Category>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
