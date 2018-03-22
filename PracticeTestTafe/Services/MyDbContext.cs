@@ -14,7 +14,7 @@ namespace PracticeTestTafe.Services
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options
-                .UseSqlServer(@"Server=(localdb)\MSSQLLocalDB ; Database=PracticeTestDB ; Trusted_Connection=True");
+                .UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=PracticeTestDB; Trusted_Connection=True");
         }
     }
 }

@@ -1,7 +1,14 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model HomeCategoryViewModel
 
-<h2>Index</h2>
+<h2>Categories</h2>
+
+<table>
+    @foreach (var category in Model.CategoryList)
+    {
+    <tr>
+        <td>@category.CategoryId</td>
+        <td>@category.Name</td>
+    </tr>
+    }
+</table>
 
