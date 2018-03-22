@@ -12,5 +12,7 @@ namespace PracticeTestTafe.Models
         [Required]
         public string Name { get; set; }
         public string Details { get; set; }
+
+        public ICollection<Product> Products { get; set; }
     }
 }

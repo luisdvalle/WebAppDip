@@ -12,8 +12,12 @@ namespace PracticeTestTafe.Controllers
     public class CategoryController : Controller
     {
         private IDataService<Category> _categoryDataService;
+        private IDataService<Product> _productDataService;
 
-        public CategoryController(IDataService<Category> categoryDataService)
+        public CategoryController(
+            IDataService<Category> categoryDataService,
+            IDataService<Product> productDataService
+            )
         {
             _categoryDataService = categoryDataService;
         }
@@ -49,6 +53,24 @@ namespace PracticeTestTafe.Controllers
 
                 ModelState.AddModelError("", "This name already exists");
             }
+
+            return View(vm);
+        }
+
+        public IActionResult Details(int categoryId)
+        {
+            // Get category by Id
+            Category category = _categoryDataService.GetSingle(c => c.CategoryId == categoryId);
+
+            // vm
+            CategoryDetailsViewModel vm = new CategoryDetailsViewModel
+            {
+                Id = category.CategoryId,
+                Name = category.Name,
+                Details = category.Details,
+                Total = category.Products.Count(),
+                Products = category.Products
+            };
 
             return View(vm);
         }

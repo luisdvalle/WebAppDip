@@ -21,6 +21,7 @@ namespace PracticeTestTafe
 
             // Registering services in DI container
             services.AddScoped<IDataService<Category>, DataService<Category>>();
+            services.AddScoped<IDataService<Product>, DataService<Product>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

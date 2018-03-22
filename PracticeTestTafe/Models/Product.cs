@@ -11,5 +11,8 @@ namespace PracticeTestTafe.Models
         public string Name { get; set; }
         public string Details { get; set; }
         public double Price { get; set; }
+
+        // FK
+        public int CategoryId { get; set; }
     }
 }
