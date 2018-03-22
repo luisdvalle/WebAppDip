@@ -9,5 +9,6 @@ namespace PracticeTestTafe.Services
     public interface IDataService<T>
     {
         IEnumerable<T> GetAll();
+        void Add(T item);
     }
 }

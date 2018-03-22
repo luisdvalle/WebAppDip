@@ -22,5 +22,10 @@ namespace PracticeTestTafe.Services
         {
             return _dbSet.ToList();
         }
+
+        public void Add(T item)
+        {
+            _dbSet.Add(item);
+        }
     }
 }
