@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PracticeTestTafe.Models;
 using PracticeTestTafe.Services;
+using PracticeTestTafe.ViewModels;
 
 namespace PracticeTestTafe.Controllers
 {
@@ -19,7 +20,15 @@ namespace PracticeTestTafe.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Category> categoryList = _categoryDataService.GetAll();
+
+            HomeCategoryViewModel vm = new HomeCategoryViewModel
+            {
+                Total = categoryList.Count(),
+                CategoryList = categoryList
+            };
+
+            return View(vm);
         }
     }
 }
